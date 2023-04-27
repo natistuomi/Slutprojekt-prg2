@@ -5,5 +5,8 @@
 Har gjort:
 
 - Projektbeskrivning
+- Planering
 
 Nästa gång:
+
+- Planering
