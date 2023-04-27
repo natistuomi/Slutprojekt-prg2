@@ -11,3 +11,5 @@ Sammanfattningsvis ska projektet:
 - Ska föra in varje omgångs statistik i en databas.
 
 Om tid återstår kan jag försöka se om det är möjligt för spelet att berätta när det är schack eller schack matt. 
+
+GUI jag tänker använda blir uppbyggd på samma sätt som när vi arbetade med grafik förra året. Jag behöver på så sätt se tillbaka på det projektet (graf-ritare) och färska upp minnet. Det ger mig en utgångspunkt och ett GUI jag personligen anser är enklare att arbeta med än Swing.
