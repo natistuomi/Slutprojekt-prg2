@@ -7,5 +7,7 @@ Sammanfattningsvis ska projektet:
 - Ha ett "schackbräde" med 8x8 rutor och 32 schackpjäser av olika slag.
 - Ha ett MVC upplägg.
 - Ha ett pixelbaserat GUI styrt med tangentbordet.
-- Kunna spelas som ett vanligt schackspel med reservation för att spelet inte är över förrän en kung är tagen.
+- Kunna spelas som ett vanligt schackspel med två spelare med reservation för att spelet inte är över förrän en kung är tagen.
 - Ska föra in varje omgångs statistik i en databas.
+
+Om tid återstår kan jag försöka se om det är möjligt för spelet att berätta när det är schack eller schack matt. 
