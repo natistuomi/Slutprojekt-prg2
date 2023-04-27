@@ -9,4 +9,4 @@ nt19chess
 
 Klasser: 
 
-Se [preliminära klassdiagram](/klassdiagram.jpg")
+Se [preliminära klassdiagram](/Dokumentation/klassdiagram.jpg")
