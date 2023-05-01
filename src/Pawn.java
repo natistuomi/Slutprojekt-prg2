@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Pawn extends Piece{
-    public Pawn(String colour, Square position, int x, int y){
+    public Pawn(String colour, int x, int y){
         setColour(colour);
-        setPosition(position, x, y);
+        setPosition(x, y);
     }
 
     public ArrayList<String> getOptions(){
@@ -28,7 +28,6 @@ public class Pawn extends Piece{
     public String toString() {
         return "Piece{" +
                 "colour='" + getColour() + '\'' +
-                ", position=" + getPosition() +
                 ", x=" + getX() +
                 ", y=" + getY() +
                 ", k=" + getK() +

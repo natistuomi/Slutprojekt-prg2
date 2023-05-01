@@ -1,6 +1,6 @@
 public class Square {
     private String colour;
-    private String occupiedBy = "";
+    private String occupiedBy = "empty";
 
     public Square(String colour) {
         this.colour = colour;
@@ -36,6 +36,6 @@ public class Square {
     }
 
     public void leaveSquare(){
-        occupiedBy = "";
+        occupiedBy = "empty";
     }
 }

@@ -1,6 +1,5 @@
 public class Piece {
     private String colour;
-    private Square position;
     private int x;
     private int y;
     private int k = 1;
@@ -21,12 +20,7 @@ public class Piece {
         return colour;
     }
 
-    public Square getPosition() {
-        return position;
-    }
-
-    public void setPosition(Square position, int x, int y) {
-        this.position = position;
+    public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -39,8 +33,8 @@ public class Piece {
         return y;
     }
 
-    public void movePiece(Square a, int x, int y){
-        setPosition(a, x, y);
+    public void movePiece(int x, int y){
+        setPosition(x, y);
     }
 
 

@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Test {
     static Square[][] square = new Square[8][8];
+    static String q = "";
 
     public static void main (String[] args){
 
@@ -21,12 +24,21 @@ public class Test {
             }
         }
 
-        // create pawn and show pawn and square's qualities as well as show pawn's moving pattern
-        Pawn pawn = new Pawn("white", square[5][6], 5, 6);
+        // create pawn and show qualities as well as pawn's moving pattern
+        Pawn pawn = new Pawn("white", 5, 6);
         square[5][6].setOccupiedBy("white");
         System.out.println(pawn.toString());
-        System.out.println(pawn.getOptions());
+        ArrayList<String> options = pawn.getOptions();
+        System.out.println(options);
+        checkSquareStatus(options.get(0));
+        System.out.println(q);
+        checkSquareStatus("5:6");
+        System.out.println(q);
+    }
 
-
+    public static void checkSquareStatus(String s){
+        int x = Integer.parseInt(String.valueOf(s.charAt(0)));
+        int y = Integer.parseInt(String.valueOf(s.charAt(2)));
+        q = square[x][y].getOccupiedBy();
     }
 }
