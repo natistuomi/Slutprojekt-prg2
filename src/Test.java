@@ -34,7 +34,18 @@ public class Test {
         System.out.println(q);
         checkSquareStatus("5:6");
         System.out.println(q);
+
+        Rook rook = new Rook("white", 0, 7);
+        square[0][7].setOccupiedBy("white");
+        System.out.println(rook.toString());
+        options = rook.getOptions();
+        System.out.println(options);
+
+        // find a way to check viable options
+
     }
+
+
 
     public static void checkSquareStatus(String s){
         int x = Integer.parseInt(String.valueOf(s.charAt(0)));

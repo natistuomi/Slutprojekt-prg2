@@ -26,7 +26,7 @@ public class Pawn extends Piece{
 
     @Override
     public String toString() {
-        return "Piece{" +
+        return "Pawn{" +
                 "colour='" + getColour() + '\'' +
                 ", x=" + getX() +
                 ", y=" + getY() +
