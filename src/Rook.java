@@ -9,6 +9,7 @@ public class Rook extends Piece{
     public ArrayList<String> getOptions(){
         ArrayList<String> options = new ArrayList<String>();
         String s = "";
+        // checks left, up, right and then down
         for(int i = getX()-1; i != -1; i--){
             s = i + ":" + getY();
             options.add(s);

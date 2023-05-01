@@ -41,6 +41,10 @@ public class Test {
         options = rook.getOptions();
         System.out.println(options);
 
+        Knight knight = new Knight("white", 2, 2);
+        options = knight.getOptions();
+        System.out.println(options);
+
         // find a way to check viable options
 
     }
