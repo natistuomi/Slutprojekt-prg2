@@ -45,6 +45,10 @@ public class Test {
         options = knight.getOptions();
         System.out.println(options);
 
+        Bishop bishop = new Bishop("white", 3, 4);
+        options = bishop.getOptions();
+        System.out.println("Bishop: " + options);
+
         // find a way to check viable options
 
     }
