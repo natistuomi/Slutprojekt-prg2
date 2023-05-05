@@ -49,6 +49,10 @@ public class Test {
         options = bishop.getOptions();
         System.out.println("Bishop: " + options);
 
+        Queen queen = new Queen("white", 3, 4);
+        options = queen.getOptions();
+        System.out.println(options);
+
         // find a way to check viable options
 
     }
