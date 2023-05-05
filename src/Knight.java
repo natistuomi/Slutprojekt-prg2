@@ -13,9 +13,13 @@ public class Knight extends Piece{
             if(getY() != 0){
                 s = (getX()-2) + ":" + (getY()-1);
                 options.add(s);
+                s = "/";
+                options.add(s);
             }
             if(getY() != 7){
                 s = (getX()-2) + ":" + (getY()+1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }
@@ -23,9 +27,13 @@ public class Knight extends Piece{
             if(getX() != 0){
                 s = (getX()-1) + ":" + (getY()-2);
                 options.add(s);
+                s = "/";
+                options.add(s);
             }
             if(getX() != 7){
                 s = (getX()+1) + ":" + (getY()-2);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }
@@ -33,9 +41,13 @@ public class Knight extends Piece{
             if(getY() != 0){
                 s = (getX()+2) + ":" + (getY()-1);
                 options.add(s);
+                s = "/";
+                options.add(s);
             }
             if(getY() != 7){
                 s = (getX()+2) + ":" + (getY()+1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }
@@ -43,9 +55,13 @@ public class Knight extends Piece{
             if(getX() != 0){
                 s = (getX()-1) + ":" + (getY()+2);
                 options.add(s);
+                s = "/";
+                options.add(s);
             }
             if(getX() != 7){
                 s = (getX()+1) + ":" + (getY()+2);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }

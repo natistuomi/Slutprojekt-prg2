@@ -12,33 +12,49 @@ public class King extends Piece{
         if(getX() > 0){
             s = (getX()-1) + ":" + getY();
             options.add(s);
+            s = "/";
+            options.add(s);
             if(getY() > 0){
                 s = (getX()-1) + ":" + (getY()-1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
             if(getY() < 7){
                 s = (getX()-1) + ":" + (getY()+1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }
         if(getX() < 7){
             s = (getX()+1) + ":" + getY();
             options.add(s);
+            s = "/";
+            options.add(s);
             if(getY() > 0){
                 s = (getX()+1) + ":" + (getY()-1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
             if(getY() < 7){
                 s = (getX()+1) + ":" + (getY()+1);
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }
         if(getY() > 0){
             s = getX() + ":" + (getY()-1);
             options.add(s);
+            s = "/";
+            options.add(s);
         }
         if(getY() < 7){
             s = getX() + ":" + (getY()+1);
+            options.add(s);
+            s = "/";
             options.add(s);
         }
         return options;

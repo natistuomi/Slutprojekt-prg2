@@ -22,6 +22,8 @@ public class Bishop extends Piece{
                 i = -1;
             }
         }
+        s = "/";
+        options.add(s);
         g = y;
         for(int i = x+1; i < 8; i++){
             g -= 1;
@@ -33,6 +35,8 @@ public class Bishop extends Piece{
                 i = 8;
             }
         }
+        s = "/";
+        options.add(s);
         g = y;
         for(int i = x+1; i < 8; i++){
             g += 1;
@@ -44,6 +48,8 @@ public class Bishop extends Piece{
                 i = 8;
             }
         }
+        s = "/";
+        options.add(s);
         g = y;
         for(int i = x-1; i > -1; i--){
             g += 1;
@@ -55,6 +61,8 @@ public class Bishop extends Piece{
                 i = -1;
             }
         }
+        s = "/";
+        options.add(s);
         return options;
     }
 

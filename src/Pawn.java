@@ -12,12 +12,18 @@ public class Pawn extends Piece{
         if(getColour().equals("white") && getY() != 0 || getColour().equals("black") && getY() != 7){
             s = getX() + ":" + (getY()+getK());
             options.add(s);
+            s = "/";
+            options.add(s);
             if(getX() != 0){
                 s = getX()-1 + ":" + (getY()+getK());
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
             if(getX() != 7){
                 s = getX()+1 + ":" + (getY()+getK());
+                options.add(s);
+                s = "/";
                 options.add(s);
             }
         }

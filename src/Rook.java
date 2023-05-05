@@ -14,18 +14,26 @@ public class Rook extends Piece{
             s = i + ":" + getY();
             options.add(s);
         }
+        s = "/";
+        options.add(s);
         for(int i = getY()-1; i != -1; i--){
             s = getX() + ":" + i;
             options.add(s);
         }
+        s = "/";
+        options.add(s);
         for(int i = getX()+1; i != 8; i++){
             s = i + ":" + getY();
             options.add(s);
         }
+        s = "/";
+        options.add(s);
         for(int i = getY()+1; i != 8; i++){
             s = getX() + ":" + i;
             options.add(s);
         }
+        s = "/";
+        options.add(s);
         return options;
     }
 
