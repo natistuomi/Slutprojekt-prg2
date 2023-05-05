@@ -51,7 +51,11 @@ public class Test {
 
         Queen queen = new Queen("white", 3, 4);
         options = queen.getOptions();
-        System.out.println(options);
+        System.out.println("Queen: " + options);
+
+        King king = new King("white", 0, 4);
+        options = king.getOptions();
+        System.out.println("King: " + options);
 
         // find a way to check viable options
 
