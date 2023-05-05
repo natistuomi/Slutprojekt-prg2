@@ -22,3 +22,17 @@ Har gjort:
 Nästa gång:
 
 - Fortsätt med pjäs-klasser
+
+**5 maj 2023**
+
+Har gjort:
+
+- Skapat klassfiler
+- Kontrollerat alla klassfiler
+- Påbörjat Model
+- Påbörjat View
+
+Nästa gång:
+
+- Model
+- View
