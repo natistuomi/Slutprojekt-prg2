@@ -33,9 +33,7 @@ public class Piece {
         return y;
     }
 
-    public void movePiece(int x, int y){
-        setPosition(x, y);
-    }
+    public void movePiece(int x, int y){setPosition(x, y);}
 
 
 }

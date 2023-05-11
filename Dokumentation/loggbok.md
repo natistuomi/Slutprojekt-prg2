@@ -36,3 +36,14 @@ Nästa gång:
 
 - Model
 - View
+
+**11 maj 2023**
+
+Har gjort:
+
+- View kan rita ut en pawn
+- Listat ut en del om hur Viewn ska fungera
+
+Nästa gång:
+
+- Fortsätt med View

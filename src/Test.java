@@ -26,7 +26,7 @@ public class Test {
 
         // create pawn and show qualities as well as pawn's moving pattern
         Pawn pawn = new Pawn("white", 5, 6);
-        square[5][6].setOccupiedBy("white");
+        square[5][6].setOccupiedBy("white", "pawn");
         System.out.println(pawn.toString());
         ArrayList<String> options = pawn.getOptions();
         System.out.println(options);
@@ -36,7 +36,7 @@ public class Test {
         System.out.println(q);
 
         Rook rook = new Rook("white", 0, 7);
-        square[0][7].setOccupiedBy("white");
+        square[0][7].setOccupiedBy("white", "rook");
         System.out.println(rook.toString());
         options = rook.getOptions();
         System.out.println(options);

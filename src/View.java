@@ -15,6 +15,9 @@ public class View extends Canvas implements Runnable{
     // Variabler gör det lättare att placera saker
     private int chessStartY = 60;
     private int chessEndY = 700;
+    private int firstSquareX = 40;
+    private int firstSquareY = 70;
+    private Square[][] square = new Square[8][8];
 
 
     /**
@@ -83,6 +86,13 @@ public class View extends Canvas implements Runnable{
     }
 
 
+    public void setSquares(){
+        //Square[][] s ^^^
+        //square = s;
+        square[0][0] = new Square("white", "rook");
+    }
+
+
 
 
     /**
@@ -91,7 +101,13 @@ public class View extends Canvas implements Runnable{
      * @param g grafiken
      */
     private void draw(Graphics g) {
+        //setSquares();
         drawChessBoard(g);
+        //drawPieces(g);'
+        drawPawn(g, firstSquareX, firstSquareY, "white");
+        drawPawn(g, firstSquareX+80, firstSquareY, "black");
+        drawPawn(g, firstSquareX, firstSquareY+80, "white");
+        drawPawn(g, firstSquareX+80, firstSquareY+80, "black");
     }
 
     public void drawChessBoard(Graphics g){
@@ -123,8 +139,56 @@ public class View extends Canvas implements Runnable{
 
     }
 
+    public void drawPieces(Graphics g){
+        for(int i = 0; i < 8; i++){
+            for(int h = 0; h < 8; h++){
+                int x = firstSquareX + (i * 80);
+                int y = firstSquareY + (h * 80);
+                String colour = square[i][h].getColour();
+                if(square[i][h].getOccupiedBy().equals("empty")){}
+                else if(square[i][h].getPiece().equals("pawn")){
+                    drawPawn(g, x, y, colour);
+                }
+            }
+        }
+    }
+
+    public void drawPawn(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+55, y+15, y+55}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+55, y+15, y+55}, 3);
+        setColour(g, colour, "");
+        g.fillOval(x-10, y+15, 20, 20);
+        setColour(g, colour, "inverse");
+        g.drawOval(x-10, y+15, 20, 20);
+
+    }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void setColour(Graphics g, String colour, String inv){
+        if(colour.equals("white") && inv.equals("")){g.setColor(Color.white);}
+        else if(colour.equals("white")){g.setColor(Color.black);}
+        else if(colour.equals("black") && inv.equals("inverse")){g.setColor(Color.white);}
+        else{g.setColor(Color.black);}
+    }
 
 
 
