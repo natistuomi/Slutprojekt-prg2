@@ -18,6 +18,8 @@ public class View extends Canvas implements Runnable{
     private int firstSquareX = 40;
     private int firstSquareY = 70;
     private Square[][] square = new Square[8][8];
+    private String currentPlayer = "white";
+    private String moves = "0";
 
 
     /**
@@ -92,8 +94,11 @@ public class View extends Canvas implements Runnable{
         square[0][0] = new Square("white", "rook");
     }
 
+    public void setCurrentPlayer(String currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
 
-
+    public void setMoves(String moves) {this.moves = moves;}
 
     /**
      * Rita ut alla saker. Ordningen är viktig eftersom vi kan rita saker på andra saker.
@@ -103,15 +108,8 @@ public class View extends Canvas implements Runnable{
     private void draw(Graphics g) {
         //setSquares();
         drawChessBoard(g);
-        //drawPieces(g);'
-        drawQueen(g, firstSquareX, firstSquareY, "white");
-        drawQueen(g, firstSquareX+80, firstSquareY, "black");
-        drawQueen(g, firstSquareX, firstSquareY+80, "white");
-        drawQueen(g, firstSquareX+80, firstSquareY+80, "black");
-        drawKing(g, firstSquareX+160, firstSquareY, "white");
-        drawKing(g, firstSquareX+240, firstSquareY, "black");
-        drawKing(g, firstSquareX+160, firstSquareY+80, "white");
-        drawKing(g, firstSquareX+240, firstSquareY+80, "black");
+        //drawPieces(g);
+        drawText(g);
     }
 
     public void drawChessBoard(Graphics g){
@@ -264,7 +262,13 @@ public class View extends Canvas implements Runnable{
         g.drawRect(x-8, y+10, 16, 10);
     }
 
-
+    public void drawText(Graphics g){
+        Font stringFont = new Font( "SansSerif", Font.PLAIN, 24 );
+        g.setFont( stringFont );
+        g.setColor(Color.black);
+        g.drawString("Currently " + currentPlayer + "'s turn", 10, 40);
+        g.drawString("Moves: " + moves, 475, 40);
+    }
 
 
 
