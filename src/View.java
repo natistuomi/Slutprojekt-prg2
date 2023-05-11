@@ -104,10 +104,11 @@ public class View extends Canvas implements Runnable{
         //setSquares();
         drawChessBoard(g);
         //drawPieces(g);'
-        drawRook(g, firstSquareX, firstSquareY, "white");
-        drawRook(g, firstSquareX+80, firstSquareY, "black");
-        drawRook(g, firstSquareX, firstSquareY+80, "white");
-        drawRook(g, firstSquareX+80, firstSquareY+80, "black");
+        drawBishop(g, firstSquareX, firstSquareY, "white");
+        drawBishop(g, firstSquareX+80, firstSquareY, "black");
+        drawBishop(g, firstSquareX, firstSquareY+80, "white");
+        drawBishop(g, firstSquareX+80, firstSquareY+80, "black");
+        drawPawn(g, firstSquareX+160, firstSquareY, "black");
     }
 
     public void drawChessBoard(Graphics g){
@@ -155,7 +156,7 @@ public class View extends Canvas implements Runnable{
 
     public void drawPawn(Graphics g, int x, int y, String colour){
         setColour(g, colour, "");
-        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+55, y+15, y+55}, 3);
+        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+15, y+60}, 3);
         setColour(g, colour, "inverse");
         g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+15, y+60}, 3);
         setColour(g, colour, "");
@@ -182,6 +183,21 @@ public class View extends Canvas implements Runnable{
         g.drawRect(x-5, y, 10, 10);
         g.drawRect(x-20, y, 10, 10);
         g.drawRect(x+10, y, 10, 10);
+    }
+
+    public void drawBishop(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+30, y+60}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+30, y+60}, 3);
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+50, y+20, y+50}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+50, y+20, y+50}, 3);
+        setColour(g, colour, "");
+        g.fillOval(x-10, y, 20, 20);
+        setColour(g, colour, "inverse");
+        g.drawOval(x-10, y, 20, 20);
     }
 
 
