@@ -20,6 +20,8 @@ public class View extends Canvas implements Runnable{
     private Square[][] square = new Square[8][8];
     private String currentPlayer = "white";
     private String moves = "0";
+    private int currentX = 2;
+    private int currentY = 62;
 
 
     /**
@@ -110,6 +112,7 @@ public class View extends Canvas implements Runnable{
         drawChessBoard(g);
         //drawPieces(g);
         drawText(g);
+        drawCurrent(g);
     }
 
     public void drawChessBoard(Graphics g){
@@ -270,6 +273,13 @@ public class View extends Canvas implements Runnable{
         g.drawString("Moves: " + moves, 475, 40);
     }
 
+    public void drawCurrent(Graphics g){
+        g.setColor(Color.blue);
+        g.drawRect(currentX, currentY, 76, 76);
+        g.drawRect(currentX+1, currentY+1, 74, 74);
+        g.drawRect(currentX+2, currentY+2, 72, 72);
+    }
+
 
 
 
@@ -321,15 +331,17 @@ public class View extends Canvas implements Runnable{
         }
         @Override
         public void keyPressed(KeyEvent keyEvent) {
-            if(keyEvent.getKeyChar() == 'a'){
+            if(keyEvent.getKeyChar() == 'a' && currentX != 2){
+                currentX -= 80;
             }
-            if(keyEvent.getKeyChar() == 'd'){
+            if(keyEvent.getKeyChar() == 'd' && currentX != 562){
+                currentX += 80;
             }
-            if(keyEvent.getKeyChar() == 'w'){
+            if(keyEvent.getKeyChar() == 'w' && currentY != 62){
+                currentY -= 80;
             }
-            if(keyEvent.getKeyChar() == 's'){
-            }
-            if(keyEvent.getKeyChar() == '0'){
+            if(keyEvent.getKeyChar() == 's' && currentY != 622){
+                currentY += 80;
             }
         }
         @Override
