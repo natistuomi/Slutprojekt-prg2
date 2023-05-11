@@ -104,11 +104,14 @@ public class View extends Canvas implements Runnable{
         //setSquares();
         drawChessBoard(g);
         //drawPieces(g);'
-        drawKnight(g, firstSquareX, firstSquareY, "white");
-        drawKnight(g, firstSquareX+80, firstSquareY, "black");
-        drawKnight(g, firstSquareX, firstSquareY+80, "white");
-        drawKnight(g, firstSquareX+80, firstSquareY+80, "black");
-        drawPawn(g, firstSquareX+160, firstSquareY, "black");
+        drawQueen(g, firstSquareX, firstSquareY, "white");
+        drawQueen(g, firstSquareX+80, firstSquareY, "black");
+        drawQueen(g, firstSquareX, firstSquareY+80, "white");
+        drawQueen(g, firstSquareX+80, firstSquareY+80, "black");
+        drawKing(g, firstSquareX+160, firstSquareY, "white");
+        drawKing(g, firstSquareX+240, firstSquareY, "black");
+        drawKing(g, firstSquareX+160, firstSquareY+80, "white");
+        drawKing(g, firstSquareX+240, firstSquareY+80, "black");
     }
 
     public void drawChessBoard(Graphics g){
@@ -217,6 +220,48 @@ public class View extends Canvas implements Runnable{
         g.fillPolygon(new int[] {x-15, x+15, x+25}, new int[] {y+20, y+5, y+30}, 3);
         setColour(g, colour, "inverse");
         g.drawPolygon(new int[] {x-15, x+15, x+25}, new int[] {y+20, y+5, y+30}, 3);
+    }
+
+    public void drawQueen(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+20, y+60}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+20, y+60}, 3);
+        setColour(g, colour, "");
+        g.fillOval(x-4, y, 8, 10);
+        setColour(g, colour, "inverse");
+        g.drawOval(x-4, y, 8, 10);
+        setColour(g, colour, "");
+        g.fillOval(x-10, y+5, 20, 30);
+        setColour(g, colour, "inverse");
+        g.drawOval(x-10, y+5, 20, 30);
+        setColour(g, colour, "");
+        g.fillRect(x-10, y+30, 20, 5);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-10, y+30, 20, 5);
+    }
+
+    public void drawKing(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-13, x, x+13}, new int[] {y+60, y+10, y+60}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-13, x, x+13}, new int[] {y+60, y+10, y+60}, 3);
+        setColour(g, colour, "");
+        g.fillRect(x-1, y, 2, 20);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-1, y, 2, 20);
+        setColour(g, colour, "");
+        g.fillRect(x-6, y+4, 12, 2);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-6, y+4, 12, 2);
+        setColour(g, colour, "");
+        g.fillRect(x-10, y+20, 20, 5);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-10, y+20, 20, 5);
+        setColour(g, colour, "");
+        g.fillRect(x-8, y+10, 16, 10);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-8, y+10, 16, 10);
     }
 
 

@@ -41,7 +41,7 @@ Nästa gång:
 
 Har gjort:
 
-- View kan rita ut en pawn
+- View kan rita ut pjäser
 - Listat ut en del om hur Viewn ska fungera
 
 Nästa gång:
