@@ -104,10 +104,10 @@ public class View extends Canvas implements Runnable{
         //setSquares();
         drawChessBoard(g);
         //drawPieces(g);'
-        drawBishop(g, firstSquareX, firstSquareY, "white");
-        drawBishop(g, firstSquareX+80, firstSquareY, "black");
-        drawBishop(g, firstSquareX, firstSquareY+80, "white");
-        drawBishop(g, firstSquareX+80, firstSquareY+80, "black");
+        drawKnight(g, firstSquareX, firstSquareY, "white");
+        drawKnight(g, firstSquareX+80, firstSquareY, "black");
+        drawKnight(g, firstSquareX, firstSquareY+80, "white");
+        drawKnight(g, firstSquareX+80, firstSquareY+80, "black");
         drawPawn(g, firstSquareX+160, firstSquareY, "black");
     }
 
@@ -198,6 +198,25 @@ public class View extends Canvas implements Runnable{
         g.fillOval(x-10, y, 20, 20);
         setColour(g, colour, "inverse");
         g.drawOval(x-10, y, 20, 20);
+    }
+
+    public void drawKnight(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-15, x, x+15}, new int[] {y+60, y+10, y+60}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-15, x, x+15}, new int[] {y+60, y+10, y+60}, 3);
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-5, x+3, x+10}, new int[] {y+20, y, y+20}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-5, x+3, x+10}, new int[] {y+20, y, y+20}, 3);
+        setColour(g, colour, "");
+        g.fillRect(x-15, y+20, 15, 40);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-15, y+20, 15, 40);
+        setColour(g, colour, "");
+        g.fillPolygon(new int[] {x-15, x+15, x+25}, new int[] {y+20, y+5, y+30}, 3);
+        setColour(g, colour, "inverse");
+        g.drawPolygon(new int[] {x-15, x+15, x+25}, new int[] {y+20, y+5, y+30}, 3);
     }
 
 
