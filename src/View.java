@@ -104,10 +104,10 @@ public class View extends Canvas implements Runnable{
         //setSquares();
         drawChessBoard(g);
         //drawPieces(g);'
-        drawPawn(g, firstSquareX, firstSquareY, "white");
-        drawPawn(g, firstSquareX+80, firstSquareY, "black");
-        drawPawn(g, firstSquareX, firstSquareY+80, "white");
-        drawPawn(g, firstSquareX+80, firstSquareY+80, "black");
+        drawRook(g, firstSquareX, firstSquareY, "white");
+        drawRook(g, firstSquareX+80, firstSquareY, "black");
+        drawRook(g, firstSquareX, firstSquareY+80, "white");
+        drawRook(g, firstSquareX+80, firstSquareY+80, "black");
     }
 
     public void drawChessBoard(Graphics g){
@@ -157,12 +157,31 @@ public class View extends Canvas implements Runnable{
         setColour(g, colour, "");
         g.fillPolygon(new int[] {x-10, x, x+10}, new int[] {y+55, y+15, y+55}, 3);
         setColour(g, colour, "inverse");
-        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+55, y+15, y+55}, 3);
+        g.drawPolygon(new int[] {x-10, x, x+10}, new int[] {y+60, y+15, y+60}, 3);
         setColour(g, colour, "");
         g.fillOval(x-10, y+15, 20, 20);
         setColour(g, colour, "inverse");
         g.drawOval(x-10, y+15, 20, 20);
 
+    }
+
+    public void drawRook(Graphics g, int x, int y, String colour){
+        setColour(g, colour, "");
+        g.fillRect(x-10, y+30, 20, 30);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-10, y+20, 20, 40);
+        setColour(g, colour, "");
+        g.fillRect(x-20, y+10, 40, 20);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-20, y+10, 40, 20);
+        setColour(g, colour, "");
+        g.fillRect(x-5, y, 10, 10);
+        g.fillRect(x-20, y, 10, 10);
+        g.fillRect(x+10, y, 10, 10);
+        setColour(g, colour, "inverse");
+        g.drawRect(x-5, y, 10, 10);
+        g.drawRect(x-20, y, 10, 10);
+        g.drawRect(x+10, y, 10, 10);
     }
 
 
