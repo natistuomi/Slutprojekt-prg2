@@ -34,7 +34,6 @@ Har gjort:
 
 Nästa gång:
 
-- Model
 - View
 
 **11 maj 2023**
@@ -46,4 +45,4 @@ Har gjort:
 
 Nästa gång:
 
-- Fortsätt med View
+- Connecta MVC?
