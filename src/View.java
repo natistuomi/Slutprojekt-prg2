@@ -18,6 +18,8 @@ public class View extends Canvas implements Runnable{
     private int firstSquareX = 40;
     private int firstSquareY = 70;
     private Square[][] square = new Square[8][8];
+    private String[] player = new String[2];
+    private int stage = 0;
     private String currentPlayer = "white";
     private String moves = "0";
     private int currentX = 2;
@@ -28,6 +30,8 @@ public class View extends Canvas implements Runnable{
      * Skapa ett fönster och lägg in grafiken i det.
      */
     public View() {
+        player[0] = "";
+        player[1] = "";
         JFrame frame = new JFrame("Chess");
         this.setSize(width, height);
         frame.add(this);
@@ -108,11 +112,24 @@ public class View extends Canvas implements Runnable{
      * @param g grafiken
      */
     private void draw(Graphics g) {
-        //setSquares();
-        drawChessBoard(g);
-        //drawPieces(g);
-        drawText(g);
-        drawCurrent(g);
+        if(stage < 2){
+            drawQuestion(g);
+        }
+        else{
+            //setSquares();
+            drawChessBoard(g);
+            //drawPieces(g);
+            drawText(g);
+            drawCurrent(g);
+        }
+    }
+
+    public void drawQuestion(Graphics g){
+        Font stringFont = new Font( "SansSerif", Font.PLAIN, 24 );
+        g.setFont( stringFont );
+        g.setColor(Color.black);
+        g.drawString("What is player " + (stage+1) + "'s name?", 20, 200);
+        g.drawString(player[stage], 20, 300);
     }
 
     public void drawChessBoard(Graphics g){
@@ -269,7 +286,13 @@ public class View extends Canvas implements Runnable{
         Font stringFont = new Font( "SansSerif", Font.PLAIN, 24 );
         g.setFont( stringFont );
         g.setColor(Color.black);
-        g.drawString("Currently " + currentPlayer + "'s turn", 10, 40);
+        int i;
+        if(currentPlayer.equals("white")){
+            i = 0;
+        }else{
+            i = 1;
+        }
+        g.drawString("Currently " + player[i] + "'s turn", 10, 40);
         g.drawString("Moves: " + moves, 475, 40);
     }
 
@@ -279,6 +302,8 @@ public class View extends Canvas implements Runnable{
         g.drawRect(currentX+1, currentY+1, 74, 74);
         g.drawRect(currentX+2, currentY+2, 72, 72);
     }
+
+
 
 
 
@@ -331,21 +356,72 @@ public class View extends Canvas implements Runnable{
         }
         @Override
         public void keyPressed(KeyEvent keyEvent) {
-            if(keyEvent.getKeyChar() == 'a' && currentX != 2){
-                currentX -= 80;
-            }
-            if(keyEvent.getKeyChar() == 'd' && currentX != 562){
-                currentX += 80;
-            }
-            if(keyEvent.getKeyChar() == 'w' && currentY != 62){
-                currentY -= 80;
-            }
-            if(keyEvent.getKeyChar() == 's' && currentY != 622){
-                currentY += 80;
+            if(keyEvent.getKeyChar() == 'a'){
+                if(stage == 2 && currentX != 2){currentX -= 80;}
+                else{player[stage] += "a";}
+            }if(keyEvent.getKeyChar() == 'b'){
+                if(stage == 0 || stage == 1){player[stage] += "b";}
+            }if(keyEvent.getKeyChar() == 'c'){
+                if(stage == 0 || stage == 1){player[stage] += "c";}
+            }if(keyEvent.getKeyChar() == 'd'){
+                if(stage == 2 && currentX != 562){currentX += 80;}
+                else{player[stage] += "d";}
+            }if(keyEvent.getKeyChar() == 'e'){
+                if(stage == 0 || stage == 1){player[stage] += "e";}
+            }if(keyEvent.getKeyChar() == 'f'){
+                if(stage == 0 || stage == 1){player[stage] += "f";}
+            }if(keyEvent.getKeyChar() == 'g'){
+                if(stage == 0 || stage == 1){player[stage] += "g";}
+            }if(keyEvent.getKeyChar() == 'h'){
+                if(stage == 0 || stage == 1){player[stage] += "h";}
+            }if(keyEvent.getKeyChar() == 'i'){
+                if(stage == 0 || stage == 1){player[stage] += "i";}
+            }if(keyEvent.getKeyChar() == 'j'){
+                if(stage == 0 || stage == 1){player[stage] += "j";}
+            }if(keyEvent.getKeyChar() == 'k'){
+                if(stage == 0 || stage == 1){player[stage] += "k";}
+            }if(keyEvent.getKeyChar() == 'l'){
+                if(stage == 0 || stage == 1){player[stage] += "l";}
+            }if(keyEvent.getKeyChar() == 'm'){
+                if(stage == 0 || stage == 1){player[stage] += "m";}
+            }if(keyEvent.getKeyChar() == 'n'){
+                if(stage == 0 || stage == 1){player[stage] += "n";}
+            }if(keyEvent.getKeyChar() == 'o'){
+                if(stage == 0 || stage == 1){player[stage] += "o";}
+            }if(keyEvent.getKeyChar() == 'p'){
+                if(stage == 0 || stage == 1){player[stage] += "p";}
+            }if(keyEvent.getKeyChar() == 'q'){
+                if(stage == 0 || stage == 1){player[stage] += "q";}
+            }if(keyEvent.getKeyChar() == 'r'){
+                if(stage == 0 || stage == 1){player[stage] += "r";}
+            }if(keyEvent.getKeyChar() == 's'){
+                if(stage == 2 && currentY != 622){currentY += 80;}
+                else{player[stage] += "s";}
+            }if(keyEvent.getKeyChar() == 't'){
+                if(stage == 0 || stage == 1){player[stage] += "t";}
+            }if(keyEvent.getKeyChar() == 'u'){
+                if(stage == 0 || stage == 1){player[stage] += "u";}
+            }if(keyEvent.getKeyChar() == 'v'){
+                if(stage == 0 || stage == 1){player[stage] += "v";}
+            }if(keyEvent.getKeyChar() == 'w'){
+                if(stage == 2 && currentY != 62){currentY -= 80;}
+                else{player[stage] += "w";}
+            }if(keyEvent.getKeyChar() == 'x'){
+                if(stage == 0 || stage == 1){player[stage] += "x";}
+            }if(keyEvent.getKeyChar() == 'y'){
+                if(stage == 0 || stage == 1){player[stage] += "y";}
+            }if(keyEvent.getKeyChar() == 'z'){
+                if(stage == 0 || stage == 1){player[stage] += "z";}
+            }if(keyEvent.getKeyChar() == ' '){
+                if(stage == 0 || stage == 1){stage += 1;}
             }
         }
         @Override
         public void keyReleased(KeyEvent keyEvent) {
         }
+    }
+
+    public String[] getPlayer() {
+        return player;
     }
 }

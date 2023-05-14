@@ -46,3 +46,12 @@ Har gjort:
 Nästa gång:
 
 - Connecta MVC?
+
+**14 maj 2023**
+
+Har gjort:
+
+- Fastställ spelarnas namn
+
+Nästa gång:
+
