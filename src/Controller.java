@@ -1,5 +1,5 @@
 public class Controller {
-    // Model model;
+    Model model;
     // View view;
 
     //public Controller(Model m, View v) {
@@ -7,15 +7,14 @@ public class Controller {
         //this.view = v;
     //}
 
-    //public static void main(String[] args) {
-        //Model m = new CryptModel();
-        //View v = new CryptView();
+    public static void main(String[] args) {
+        Model m = new Model();
+        //View v = new View();
         //Controller c = new Controller(m,v);
-        //Ask for player names
         //First player chooses own occupied square
         //First player sees options
         //First player chooses option
         //Piece moves
         //Repeat until a king is dead
-    //}
+    }
 }

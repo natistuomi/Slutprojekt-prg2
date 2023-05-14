@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
 public class View extends Canvas implements Runnable{
     private Thread thread;
@@ -24,14 +25,17 @@ public class View extends Canvas implements Runnable{
     private String moves = "0";
     private int currentX = 2;
     private int currentY = 62;
+    private ArrayList<int[]> options = new ArrayList<int[]>();
+    private int[] selected = new int[2];
 
 
     /**
      * Skapa ett fönster och lägg in grafiken i det.
      */
-    public View() {
+    public View(Square[][] sq) {
         player[0] = "";
         player[1] = "";
+        square = sq;
         JFrame frame = new JFrame("Chess");
         this.setSize(width, height);
         frame.add(this);
@@ -94,10 +98,8 @@ public class View extends Canvas implements Runnable{
     }
 
 
-    public void setSquares(){
-        //Square[][] s ^^^
-        //square = s;
-        square[0][0] = new Square("white", "rook");
+    public void setSquares(Square[][] sq){
+        square = sq;
     }
 
     public void setCurrentPlayer(String currentPlayer) {
@@ -116,10 +118,10 @@ public class View extends Canvas implements Runnable{
             drawQuestion(g);
         }
         else{
-            //setSquares();
             drawChessBoard(g);
-            //drawPieces(g);
+            drawPieces(g);
             drawText(g);
+            drawOptions(g);
             drawCurrent(g);
         }
     }
@@ -168,9 +170,12 @@ public class View extends Canvas implements Runnable{
                 int y = firstSquareY + (h * 80);
                 String colour = square[i][h].getColour();
                 if(square[i][h].getOccupiedBy().equals("empty")){}
-                else if(square[i][h].getPiece().equals("pawn")){
-                    drawPawn(g, x, y, colour);
-                }
+                else if(square[i][h].getPiece().equals("pawn")){drawPawn(g, x, y, colour);}
+                else if(square[i][h].getPiece().equals("rook")){drawRook(g, x, y, colour);}
+                else if(square[i][h].getPiece().equals("knight")){drawKnight(g, x, y, colour);}
+                else if(square[i][h].getPiece().equals("bishop")){drawBishop(g, x, y, colour);}
+                else if(square[i][h].getPiece().equals("queen")){drawQueen(g, x, y, colour);}
+                else if(square[i][h].getPiece().equals("king")){drawKing(g, x, y, colour);}
             }
         }
     }
@@ -303,6 +308,16 @@ public class View extends Canvas implements Runnable{
         g.drawRect(currentX+2, currentY+2, 72, 72);
     }
 
+    public void drawOptions(Graphics g){
+        g.setColor(Color.red);
+        for(int i = 0; i < options.size(); i++){
+            int newX = firstSquareX + (options.get(i)[0]*80) - 30;
+            int newY = firstSquareY + (options.get(i)[1]*80);
+            g.drawOval(newX, newY, 60, 60);
+            g.drawOval(newX+1, newY+1, 58, 58);
+            g.drawOval(newX+2, newY+2, 56, 56);
+        }
+    }
 
 
 
@@ -346,6 +361,7 @@ public class View extends Canvas implements Runnable{
         });
         exempel.start();
     }
+
 
 
 
@@ -423,5 +439,13 @@ public class View extends Canvas implements Runnable{
 
     public String[] getPlayer() {
         return player;
+    }
+
+    public void setOptions(ArrayList<int[]> options) {
+        this.options = options;
+    }
+
+    public int[] getSelected() {
+        return selected;
     }
 }

@@ -6,86 +6,94 @@ public class Queen extends Piece{
         setPosition(x, y);
     }
 
-    public ArrayList<String> getOptions(){
-        ArrayList<String> options = new ArrayList<String>();
-        String s = "";
+    public ArrayList<int[]> getOptions(){
+        ArrayList<int[]> options = new ArrayList<int[]>();
+        int[] s = new int[2];
         int x = getX();
         int y = getY();
         for(int i = x-1; i != -1; i--){
-            s = i + ":" + y;
+            s[0] = i;
+            s[1] = y;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = y-1; i != -1; i--){
-            s = x + ":" + i;
+            s[0] = x;
+            s[1] = i;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = x+1; i != 8; i++){
-            s = i + ":" + y;
+            s[0] = i;
+            s[1] = y;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = y+1; i != 8; i++){
-            s = x + ":" + i;
+            s[0] = x;
+            s[1] = i;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         int g = y;
         for(int i = x-1; i > -1; i--){
             g -= 1;
             if(g != -1){
-                s = i + ":" + g;
+                s[0] = i;
+                s[1] = g;
                 options.add(s);
             }
             else{
                 i = -1;
             }
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         g = y;
         for(int i = x+1; i < 8; i++){
             g -= 1;
             if(g != -1){
-                s = i + ":" + g;
+                s[0] = i;
+                s[1] = g;
                 options.add(s);
             }
             else{
                 i = 8;
             }
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         g = y;
         for(int i = x+1; i < 8; i++){
             g += 1;
             if(g != 8){
-                s = i + ":" + g;
+                s[0] = i;
+                s[1] = g;
                 options.add(s);
             }
             else{
                 i = 8;
             }
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         g = y;
         for(int i = x-1; i > -1; i--){
             g += 1;
             if(g != 8){
-                s = i + ":" + g;
+                s[0] = i;
+                s[1] = g;
                 options.add(s);
             }
             else{
                 i = -1;
             }
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         return options;
     }

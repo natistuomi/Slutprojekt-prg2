@@ -52,6 +52,10 @@ Nästa gång:
 Har gjort:
 
 - Fastställ spelarnas namn
+- Markera möjliga drag
+- Få en lista på alla möjliga drag utifrån schackbrädet och pjäsen i fråga
+- Modellen skapar alla pjäser vid kreation
 
 Nästa gång:
 
+- Databas införsel

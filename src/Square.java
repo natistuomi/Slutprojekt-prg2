@@ -12,10 +12,6 @@ public class Square {
         this.occupiedBy = occupiedBy;
     }
 
-    public void setOccupiedBy(String occupiedBy) {
-        this.occupiedBy = occupiedBy;
-    }
-
     public String getPiece() {
         return piece;
     }

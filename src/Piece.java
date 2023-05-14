@@ -35,5 +35,10 @@ public class Piece {
 
     public void movePiece(int x, int y){setPosition(x, y);}
 
-
+    public int[] stopper(){
+        int[] s = new int[2];
+        s[0] = 123;
+        s[1] = 123;
+        return s;
+    }
 }

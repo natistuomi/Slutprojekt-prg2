@@ -6,33 +6,37 @@ public class Rook extends Piece{
         setPosition(x, y);
     }
 
-    public ArrayList<String> getOptions(){
-        ArrayList<String> options = new ArrayList<String>();
-        String s = "";
+    public ArrayList<int[]> getOptions(){
+        ArrayList<int[]> options = new ArrayList<int[]>();
+        int[] s = new int[2];
         // checks left, up, right and then down
         for(int i = getX()-1; i != -1; i--){
-            s = i + ":" + getY();
+            s[0] = i;
+            s[1] = getY();
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = getY()-1; i != -1; i--){
-            s = getX() + ":" + i;
+            s[0] = getX();
+            s[1] = i;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = getX()+1; i != 8; i++){
-            s = i + ":" + getY();
+            s[0] = i;
+            s[1] = getY();
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         for(int i = getY()+1; i != 8; i++){
-            s = getX() + ":" + i;
+            s[0] = getX();
+            s[1] = i;
             options.add(s);
         }
-        s = "/";
+        s = stopper();
         options.add(s);
         return options;
     }

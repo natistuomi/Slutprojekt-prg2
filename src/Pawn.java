@@ -6,24 +6,28 @@ public class Pawn extends Piece{
         setPosition(x, y);
     }
 
-    public ArrayList<String> getOptions(){
-        ArrayList<String> options = new ArrayList<String>();
-        String s = "";
+    public ArrayList<int[]> getOptions(){
+        ArrayList<int[]> options = new ArrayList<int[]>();
+        int[] s = new int[2];
         if(getColour().equals("white") && getY() != 0 || getColour().equals("black") && getY() != 7){
-            s = getX() + ":" + (getY()+getK());
+            s[0] = getX();
+            s[1] = getY()+getK();
             options.add(s);
-            s = "/";
+            s[0] = 321;
+            s[1] = 321;
             options.add(s);
             if(getX() != 0){
-                s = getX()-1 + ":" + (getY()+getK());
+                s[0] = getX()-1;
+                s[1] = getY()+getK();
                 options.add(s);
-                s = "/";
+                s = stopper();
                 options.add(s);
             }
             if(getX() != 7){
-                s = getX()+1 + ":" + (getY()+getK());
+                s[0] = getX()+1;
+                s[1] = getY()+getK();
                 options.add(s);
-                s = "/";
+                s = stopper();
                 options.add(s);
             }
         }
