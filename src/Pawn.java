@@ -20,19 +20,29 @@ public class Pawn extends Piece{
                 s[0] = getX()-1;
                 s[1] = getY()+getK();
                 options.add(s);
-                s = stopper();
+                s[0] = 321;
+                s[1] = 321;
                 options.add(s);
             }
             if(getX() != 7){
                 s[0] = getX()+1;
                 s[1] = getY()+getK();
+                System.out.println("::: " + s[0] + " " + s[1]);
                 options.add(s);
+                System.out.println(options.get(4)[0]);
                 s = stopper();
+                System.out.println("::: " + s[0] + " " + s[1]);
                 options.add(s);
+                System.out.println(options.get(5)[0]);
             }
+        }
+        for(int i = 0; i < options.size(); i++){
+            System.out.println("Pawn option " + i + ": " + options.get(i)[0] + " , " + options.get(i)[1]);
         }
         return options;
     }
+
+
 
     @Override
     public String toString() {

@@ -7,7 +7,7 @@ public class Piece {
 
     public void setColour(String colour) {
         this.colour = colour;
-        if(colour.equals("white")){
+        if(colour.equals("black")){
             k = -1;
         }
     }

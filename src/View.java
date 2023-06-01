@@ -27,6 +27,8 @@ public class View extends Canvas implements Runnable{
     private int currentY = 62;
     private ArrayList<int[]> options = new ArrayList<int[]>();
     private int[] selected = new int[2];
+    private int[] chosen = new int[2];
+    private boolean noChange = true;
 
 
     /**
@@ -168,7 +170,7 @@ public class View extends Canvas implements Runnable{
             for(int h = 0; h < 8; h++){
                 int x = firstSquareX + (i * 80);
                 int y = firstSquareY + (h * 80);
-                String colour = square[i][h].getColour();
+                String colour = square[i][h].getOccupiedBy();
                 if(square[i][h].getOccupiedBy().equals("empty")){}
                 else if(square[i][h].getPiece().equals("pawn")){drawPawn(g, x, y, colour);}
                 else if(square[i][h].getPiece().equals("rook")){drawRook(g, x, y, colour);}
@@ -297,7 +299,7 @@ public class View extends Canvas implements Runnable{
         }else{
             i = 1;
         }
-        g.drawString("Currently " + player[i] + "'s turn", 10, 40);
+        g.drawString("Currently " + player[i] + "'s turn (" + currentPlayer + ")", 10, 40);
         g.drawString("Moves: " + moves, 475, 40);
     }
 
@@ -352,15 +354,7 @@ public class View extends Canvas implements Runnable{
      * Skapa först en JFrame och en canvas, starta sedan tråden som sköter animationen.
      */
     //Tas bort senare och flyttas till controller
-    public static void main(String[] args) {
-        View exempel = new View();
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                exempel.setVisible(true);
-            }
-        });
-        exempel.start();
-    }
+
 
 
 
@@ -430,6 +424,11 @@ public class View extends Canvas implements Runnable{
                 if(stage == 0 || stage == 1){player[stage] += "z";}
             }if(keyEvent.getKeyChar() == ' '){
                 if(stage == 0 || stage == 1){stage += 1;}
+                else{
+                    makeSelected();
+                    noChange = false;
+                    System.out.println(selected[0] + " & " + selected[1]);
+                }
             }
         }
         @Override
@@ -447,5 +446,18 @@ public class View extends Canvas implements Runnable{
 
     public int[] getSelected() {
         return selected;
+    }
+
+    public void resetNoChange(){noChange = true;}
+
+    public void makeSelected(){
+        int a = currentX/80;
+        int b = currentY/80;
+        selected[0] = a;
+        selected[1] = b;
+    }
+
+    public boolean isNoChange() {
+        return noChange;
     }
 }

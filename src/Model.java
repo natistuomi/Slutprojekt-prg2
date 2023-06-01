@@ -2,10 +2,25 @@ import java.util.ArrayList;
 
 public class Model {
     private Square[][] square = new Square[8][8];
-    private ArrayList<Piece> white = new ArrayList<Piece>();
-    private ArrayList<Piece> black = new ArrayList<Piece>();
+    private ArrayList<Pawn> whitePawn = new ArrayList<Pawn>();
+    private ArrayList<Pawn> blackPawn = new ArrayList<Pawn>();
+    private ArrayList<Rook> whiteRook = new ArrayList<Rook>();
+    private ArrayList<Rook> blackRook = new ArrayList<Rook>();
+    private ArrayList<Knight> whiteKnight = new ArrayList<Knight>();
+    private ArrayList<Knight> blackKnight = new ArrayList<Knight>();
+    private ArrayList<Bishop> whiteBishop = new ArrayList<Bishop>();
+    private ArrayList<Bishop> blackBishop = new ArrayList<Bishop>();
+    private ArrayList<Queen> whiteQueen = new ArrayList<Queen>();
+    private ArrayList<Queen> blackQueen = new ArrayList<Queen>();
+    private ArrayList<King> whiteKing = new ArrayList<King>();
+    private ArrayList<King> blackKing = new ArrayList<King>();
     private int moves = 0;
     private String currentColour = "white";
+
+    public Model() {
+        createBoard();
+        setPieces();
+    }
 
     //Create board and set colours to all squares (occupiedBy = empty):
     public void createBoard(){
@@ -22,7 +37,6 @@ public class Model {
                     square[i][g] = new Square("black");
                 }
                 n += 1;
-                System.out.println("X: " + i + " Y: " + g + " = " + square[i][g].getColour());
             }
         }
     }
@@ -38,50 +52,50 @@ public class Model {
                 x = i;
                 if(g == 0){
                     y = 1;
-                    white.add(new Pawn(colour, x, y));
+                    whitePawn.add(new Pawn(colour, x, y));
                 }
                 else{
                     y = 6;
-                    black.add(new Pawn(colour, x, y));
+                    blackPawn.add(new Pawn(colour, x, y));
                 }
                 square[x][y].setOccupiedBy(colour, "pawn");
             }
             if (g == 0){
                 y = 0;
-                white.add(new Rook(colour, 0, y));
+                whiteRook.add(new Rook(colour, 0, y));
                 square[0][y].setOccupiedBy(colour, "rook");
-                white.add(new Knight(colour, 1, y));
+                whiteKnight.add(new Knight(colour, 1, y));
                 square[1][y].setOccupiedBy(colour, "knight");
-                white.add(new Bishop(colour, 2, y));
+                whiteBishop.add(new Bishop(colour, 2, y));
                 square[2][y].setOccupiedBy(colour, "bishop");
-                white.add(new King(colour, 3, y));
+                whiteKing.add(new King(colour, 3, y));
                 square[3][y].setOccupiedBy(colour, "king");
-                white.add(new Queen(colour, 4, y));
+                whiteQueen.add(new Queen(colour, 4, y));
                 square[4][y].setOccupiedBy(colour, "queen");
-                white.add(new Bishop(colour, 5, y));
+                whiteBishop.add(new Bishop(colour, 5, y));
                 square[5][y].setOccupiedBy(colour, "bishop");
-                white.add(new Knight(colour, 6, y));
+                whiteKnight.add(new Knight(colour, 6, y));
                 square[6][y].setOccupiedBy(colour, "knight");
-                white.add(new Rook(colour, 7, y));
+                whiteRook.add(new Rook(colour, 7, y));
                 square[7][y].setOccupiedBy(colour, "rook");
             }
             else{
                 y = 7;
-                black.add(new Rook(colour, 0, y));
+                blackRook.add(new Rook(colour, 0, y));
                 square[0][y].setOccupiedBy(colour, "rook");
-                black.add(new Knight(colour, 1, y));
+                blackKnight.add(new Knight(colour, 1, y));
                 square[1][y].setOccupiedBy(colour, "knight");
-                black.add(new Bishop(colour, 2, y));
+                blackBishop.add(new Bishop(colour, 2, y));
                 square[2][y].setOccupiedBy(colour, "bishop");
-                black.add(new King(colour, 3, y));
+                blackKing.add(new King(colour, 3, y));
                 square[3][y].setOccupiedBy(colour, "king");
-                black.add(new Queen(colour, 4, y));
+                blackQueen.add(new Queen(colour, 4, y));
                 square[4][y].setOccupiedBy(colour, "queen");
-                black.add(new Bishop(colour, 5, y));
+                blackBishop.add(new Bishop(colour, 5, y));
                 square[5][y].setOccupiedBy(colour, "bishop");
-                black.add(new Knight(colour, 6, y));
+                blackKnight.add(new Knight(colour, 6, y));
                 square[6][y].setOccupiedBy(colour, "knight");
-                black.add(new Rook(colour, 7, y));
+                blackRook.add(new Rook(colour, 7, y));
                 square[7][y].setOccupiedBy(colour, "rook");
             }
         }
@@ -91,7 +105,7 @@ public class Model {
         ArrayList<int[]> clean = new ArrayList<int[]>();
         int[] s = new int[2];
         int q = 1;
-        for(int i = 0; i < options.size()-1; i++){
+        for(int i = 0; i < options.size(); i++){
             s[0] = options.get(i)[0];
             s[1] = options.get(i)[1];
             if(s[0] == 321){q = 0;}
@@ -111,16 +125,128 @@ public class Model {
         return clean;
     }
 
+    public ArrayList<int[]> getOptions(int[] selected){
+        int a = selected[0];
+        int b = selected[1];
+        ArrayList<int[]> options = new ArrayList<int[]>();
+        if(currentColour.equals("white")){
+            if(square[a][b].getPiece().equals("pawn")){
+                for(int i = 0; i < whitePawn.size(); i++){
+                    if(whitePawn.get(i).getX()==a && whitePawn.get(i).getY()==b){
+                        options = whitePawn.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("rook")){
+                for(int i = 0; i < whiteRook.size(); i++){
+                    if(whiteRook.get(i).getX()==a && whiteRook.get(i).getY()==b){
+                        options = whiteRook.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("Knight")){
+                for(int i = 0; i < whiteKnight.size(); i++){
+                    if(whiteKnight.get(i).getX()==a && whiteKnight.get(i).getY()==b){
+                        options = whiteKnight.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("Bishop")){
+                for(int i = 0; i < whiteBishop.size(); i++){
+                    if(whiteBishop.get(i).getX()==a && whiteBishop.get(i).getY()==b){
+                        options = whiteBishop.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("king")){
+                for(int i = 0; i < whiteKing.size(); i++){
+                    if(whiteKing.get(i).getX()==a && whiteKing.get(i).getY()==b){
+                        options = whiteKing.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("queen")){
+                for(int i = 0; i < whiteQueen.size(); i++){
+                    if(whiteQueen.get(i).getX()==a && whiteQueen.get(i).getY()==b){
+                        options = whiteQueen.get(i).getOptions();
+                    }
+                }
+            }
+        }
+        else{
+            if(square[a][b].getPiece().equals("pawn")){
+                for(int i = 0; i < blackPawn.size(); i++){
+                    if(blackPawn.get(i).getX()==a && blackPawn.get(i).getY()==b){
+                        options = blackPawn.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("rook")){
+                for(int i = 0; i < blackRook.size(); i++){
+                    if(blackRook.get(i).getX()==a && blackRook.get(i).getY()==b){
+                        options = blackRook.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("Knight")){
+                for(int i = 0; i < blackKnight.size(); i++){
+                    if(blackKnight.get(i).getX()==a && blackKnight.get(i).getY()==b){
+                        options = blackKnight.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("Bishop")){
+                for(int i = 0; i < blackBishop.size(); i++){
+                    if(blackBishop.get(i).getX()==a && blackBishop.get(i).getY()==b){
+                        options = blackBishop.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("king")){
+                for(int i = 0; i < blackKing.size(); i++){
+                    if(blackKing.get(i).getX()==a && blackKing.get(i).getY()==b){
+                        options = blackKing.get(i).getOptions();
+                    }
+                }
+            }
+            else if(square[a][b].getPiece().equals("queen")){
+                for(int i = 0; i < blackQueen.size(); i++){
+                    if(blackQueen.get(i).getX()==a && blackQueen.get(i).getY()==b){
+                        options = blackQueen.get(i).getOptions();
+                    }
+                }
+            }
+        }
+        System.out.println("Options' size before cleaning: " + options.size());
+        options = cleanOptions(options);
+        System.out.println("Options' size after cleaning: " + options.size());
+        return options;
+    }
+
+
     //Adds to move count:
     public void moveDone(){
         moves += 1;
     }
 
-    public void setCurrentColour(String currentColour) {
-        this.currentColour = currentColour;
+    public void setCurrentColour() {
+        if(moves%2 == 0){
+            currentColour = "white";
+        }
+        else{
+            currentColour = "black";
+        }
+    }
+
+    public boolean bothKingsAlive(){
+        return whiteKing.size()!=0 && blackKing.size()!=0;
     }
 
     public Square[][] getSquare() {
         return square;
+    }
+
+    public boolean checkIfSquareIsViable(int[] selected){
+        return square[selected[0]][selected[1]].getOccupiedBy().equals(currentColour);
     }
 }
