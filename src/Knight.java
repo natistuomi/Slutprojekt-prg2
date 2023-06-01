@@ -16,6 +16,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getY() != 7){
                 s[0] = getX()-2;
@@ -23,6 +24,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
         }
         if(getY() > 1){
@@ -32,6 +34,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getX() != 7){
                 s[0] = getX()+1;
@@ -39,6 +42,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
         }
         if(getX() < 6){
@@ -48,6 +52,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getY() != 7){
                 s[0] = getX()+2;
@@ -55,6 +60,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
         }
         if(getY() < 6){
@@ -64,6 +70,7 @@ public class Knight extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getX() != 7){
                 s[0] = getX()+1;

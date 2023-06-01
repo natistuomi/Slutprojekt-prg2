@@ -15,12 +15,14 @@ public class King extends Piece{
             options.add(s);
             s = stopper();
             options.add(s);
+            s = new int[2];
             if(getY() > 0){
                 s[0] = getX()-1;
                 s[1] = getY()-1;
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getY() < 7){
                 s[0] = getX()-1;
@@ -28,6 +30,7 @@ public class King extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
         }
         if(getX() < 7){
@@ -36,12 +39,14 @@ public class King extends Piece{
             options.add(s);
             s = stopper();
             options.add(s);
+            s = new int[2];
             if(getY() > 0){
                 s[0] = getX()+1;
                 s[1] = getY()-1;
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
             if(getY() < 7){
                 s[0] = getX()+1;
@@ -49,6 +54,7 @@ public class King extends Piece{
                 options.add(s);
                 s = stopper();
                 options.add(s);
+                s = new int[2];
             }
         }
         if(getY() > 0){
@@ -57,6 +63,7 @@ public class King extends Piece{
             options.add(s);
             s = stopper();
             options.add(s);
+            s = new int[2];
         }
         if(getY() < 7){
             s[0] = getX();

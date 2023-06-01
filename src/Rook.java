@@ -14,6 +14,7 @@ public class Rook extends Piece{
             s[0] = i;
             s[1] = getY();
             options.add(s);
+            s = new int[2];
         }
         s = stopper();
         options.add(s);
@@ -21,6 +22,7 @@ public class Rook extends Piece{
             s[0] = getX();
             s[1] = i;
             options.add(s);
+            s = new int[2];
         }
         s = stopper();
         options.add(s);
@@ -28,6 +30,7 @@ public class Rook extends Piece{
             s[0] = i;
             s[1] = getY();
             options.add(s);
+            s = new int[2];
         }
         s = stopper();
         options.add(s);
@@ -35,6 +38,7 @@ public class Rook extends Piece{
             s[0] = getX();
             s[1] = i;
             options.add(s);
+            s = new int[2];
         }
         s = stopper();
         options.add(s);

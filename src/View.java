@@ -329,6 +329,13 @@ public class View extends Canvas implements Runnable{
         }
     }
 
+    public void drawChosen(Graphics g){
+        g.setColor(Color.red);
+        g.drawRect(2 + (80*chosen[0]), 62 + (80*chosen[1]), 76, 76);
+        g.drawRect(3 + (80*chosen[0]), 63 + (80*chosen[1]), 74, 74);
+        g.drawRect(4 + (80*chosen[0]), 64 + (80*chosen[1]), 72, 72);
+    }
+
 
 
 
@@ -450,6 +457,12 @@ public class View extends Canvas implements Runnable{
 
     public void setOptions(ArrayList<int[]> options) {
         this.options = options;
+        if(options.size() == 0){
+            chosen = new int[]{8, 8};
+        }
+        else{
+            chosen = selected;
+        }
     }
 
     public int[] getSelected() {
@@ -467,5 +480,13 @@ public class View extends Canvas implements Runnable{
 
     public boolean isNoChange() {
         return noChange;
+    }
+
+    public ArrayList<int[]> getOptions() {
+        return options;
+    }
+
+    public int[] getChosen() {
+        return chosen;
     }
 }

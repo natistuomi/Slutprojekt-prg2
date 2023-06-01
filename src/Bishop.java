@@ -18,6 +18,7 @@ public class Bishop extends Piece{
                 s[0] = i;
                 s[1] = g;
                 options.add(s);
+                s = new int[2];
             }
             else{
                 i = -1;
@@ -25,6 +26,7 @@ public class Bishop extends Piece{
         }
         s = stopper();
         options.add(s);
+        s = new int[2];
         g = y;
         for(int i = x+1; i < 8; i++){
             g -= 1;
@@ -32,6 +34,7 @@ public class Bishop extends Piece{
                 s[0] = i;
                 s[1] = g;
                 options.add(s);
+                s = new int[2];
             }
             else{
                 i = 8;
@@ -39,6 +42,7 @@ public class Bishop extends Piece{
         }
         s = stopper();
         options.add(s);
+        s = new int[2];
         g = y;
         for(int i = x+1; i < 8; i++){
             g += 1;
@@ -46,6 +50,7 @@ public class Bishop extends Piece{
                 s[0] = i;
                 s[1] = g;
                 options.add(s);
+                s = new int[2];
             }
             else{
                 i = 8;
@@ -53,6 +58,7 @@ public class Bishop extends Piece{
         }
         s = stopper();
         options.add(s);
+        s = new int[2];
         g = y;
         for(int i = x-1; i > -1; i--){
             g += 1;
@@ -60,6 +66,7 @@ public class Bishop extends Piece{
                 s[0] = i;
                 s[1] = g;
                 options.add(s);
+                s = new int[2];
             }
             else{
                 i = -1;

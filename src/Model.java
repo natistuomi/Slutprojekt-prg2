@@ -262,5 +262,24 @@ public class Model {
         return winner;
     }
 
+    public boolean checkIfSquareIsOption(int[] selected, ArrayList<int[]> options){
+        for(int i = 0; i < options.size(); i++){
+            if(options.get(i)[0] == selected[0] && options.get(i)[1] == selected[1]){
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public ArrayList<int[]> emptyOptions(){
+        ArrayList<int[]> options = new ArrayList<int[]>();
+        return options;
+    }
+
+    public void move(int[] from, int[] to){
+
+
+
+        moveDone();
+    }
 }
