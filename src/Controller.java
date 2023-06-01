@@ -19,17 +19,18 @@ public class Controller {
         Model m = new Model();
         View v = new View(m.getSquare());
         Controller c = new Controller(m, v);
-        //while(m.bothKingsAlive()){
-        while(v.isNoChange()){}
-        v.resetNoChange();
-        if(m.checkIfSquareIsViable(v.getSelected())){
-            v.setOptions(m.getOptions(v.getSelected()));
+        while(m.bothKingsAlive()){
+            //player's turn loop
+            while(v.isNoChange()){}
+            v.resetNoChange();
+            if(m.checkIfSquareIsViable(v.getSelected())){
+                v.setOptions(m.getOptions(v.getSelected()));
+            }
+            //else if false... check if move option
+                // piece moves (removed from square, moved to square and possible delete of other piece)
+                // m.moveDone();
+                // v.setMoves(m.getMoves);
         }
-        //}
-        //First player chooses own occupied square
-        //First player sees options
-        //First player chooses option
-        //Piece moves
-        //Repeat until a king is dead
+        //m.sendScore(v.get(players), m.getWinner());
     }
 }

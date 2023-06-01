@@ -14,8 +14,10 @@ public class Model {
     private ArrayList<Queen> blackQueen = new ArrayList<Queen>();
     private ArrayList<King> whiteKing = new ArrayList<King>();
     private ArrayList<King> blackKing = new ArrayList<King>();
+    private ArrayList<int[]> opt = new ArrayList<int[]>();
     private int moves = 0;
     private String currentColour = "white";
+    private int winner = -1;
 
     public Model() {
         createBoard();
@@ -122,6 +124,7 @@ public class Model {
                 q = -1;
             }
         }
+        opt = clean;
         return clean;
     }
 
@@ -224,9 +227,10 @@ public class Model {
     }
 
 
-    //Adds to move count:
+    //Adds to move count and changes player:
     public void moveDone(){
         moves += 1;
+        setCurrentColour();
     }
 
     public void setCurrentColour() {
@@ -249,4 +253,14 @@ public class Model {
     public boolean checkIfSquareIsViable(int[] selected){
         return square[selected[0]][selected[1]].getOccupiedBy().equals(currentColour);
     }
+
+    public int getMoves() {
+        return moves;
+    }
+
+    public int getWinner() {
+        return winner;
+    }
+
+
 }

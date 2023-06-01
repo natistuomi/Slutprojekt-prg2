@@ -104,11 +104,19 @@ public class View extends Canvas implements Runnable{
         square = sq;
     }
 
-    public void setCurrentPlayer(String currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    public void setCurrentPlayer() {
+        if(Integer.parseInt(moves)%2 == 0){
+            currentPlayer = "white";
+        }
+        else{
+            currentPlayer = "black";
+        }
     }
 
-    public void setMoves(String moves) {this.moves = moves;}
+    public void setMoves(String moves) {
+        this.moves = moves;
+        setCurrentPlayer();
+    }
 
     /**
      * Rita ut alla saker. Ordningen är viktig eftersom vi kan rita saker på andra saker.
