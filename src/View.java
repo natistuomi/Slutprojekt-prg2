@@ -457,6 +457,7 @@ public class View extends Canvas implements Runnable{
 
     public void setOptions(ArrayList<int[]> options) {
         this.options = options;
+        //System.out.println(this.options.get(0)[0] + " " + this.options.get(0)[1]);
         if(options.size() == 0){
             chosen = new int[]{8, 8};
         }

@@ -14,7 +14,6 @@ public class Model {
     private ArrayList<Queen> blackQueen = new ArrayList<Queen>();
     private ArrayList<King> whiteKing = new ArrayList<King>();
     private ArrayList<King> blackKing = new ArrayList<King>();
-    private ArrayList<int[]> opt = new ArrayList<int[]>();
     private int moves = 0;
     private String currentColour = "white";
     private int winner = -1;
@@ -115,16 +114,19 @@ public class Model {
             else if(q == 0){
                 if(square[s[0]][s[1]].getOccupiedBy().equals("empty")){}
                 else if(square[s[0]][s[1]].getOccupiedBy().equals(currentColour)){}
-                else{clean.add(s);}
+                else{
+                    clean.add(s);
+                    s = new int[2];
+                }
             }
             else if(q == 1 && square[s[0]][s[1]].getOccupiedBy().equals("empty")){
                 clean.add(s);
+                s = new int[2];
             }
             else{
                 q = -1;
             }
         }
-        opt = clean;
         return clean;
     }
 
@@ -147,14 +149,14 @@ public class Model {
                     }
                 }
             }
-            else if(square[a][b].getPiece().equals("Knight")){
+            else if(square[a][b].getPiece().equals("knight")){
                 for(int i = 0; i < whiteKnight.size(); i++){
                     if(whiteKnight.get(i).getX()==a && whiteKnight.get(i).getY()==b){
                         options = whiteKnight.get(i).getOptions();
                     }
                 }
             }
-            else if(square[a][b].getPiece().equals("Bishop")){
+            else if(square[a][b].getPiece().equals("bishop")){
                 for(int i = 0; i < whiteBishop.size(); i++){
                     if(whiteBishop.get(i).getX()==a && whiteBishop.get(i).getY()==b){
                         options = whiteBishop.get(i).getOptions();
@@ -191,14 +193,14 @@ public class Model {
                     }
                 }
             }
-            else if(square[a][b].getPiece().equals("Knight")){
+            else if(square[a][b].getPiece().equals("knight")){
                 for(int i = 0; i < blackKnight.size(); i++){
                     if(blackKnight.get(i).getX()==a && blackKnight.get(i).getY()==b){
                         options = blackKnight.get(i).getOptions();
                     }
                 }
             }
-            else if(square[a][b].getPiece().equals("Bishop")){
+            else if(square[a][b].getPiece().equals("bishop")){
                 for(int i = 0; i < blackBishop.size(); i++){
                     if(blackBishop.get(i).getX()==a && blackBishop.get(i).getY()==b){
                         options = blackBishop.get(i).getOptions();
@@ -220,9 +222,7 @@ public class Model {
                 }
             }
         }
-        System.out.println("Options' size before cleaning: " + options.size());
         options = cleanOptions(options);
-        System.out.println("Options' size after cleaning: " + options.size());
         return options;
     }
 
