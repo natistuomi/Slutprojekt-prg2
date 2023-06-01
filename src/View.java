@@ -37,6 +37,8 @@ public class View extends Canvas implements Runnable{
     public View(Square[][] sq) {
         player[0] = "";
         player[1] = "";
+        chosen[0] = 8;
+        chosen[1] = 8;
         square = sq;
         JFrame frame = new JFrame("Chess");
         this.setSize(width, height);
@@ -133,6 +135,7 @@ public class View extends Canvas implements Runnable{
             drawText(g);
             drawOptions(g);
             drawCurrent(g);
+            drawChosen(g);
         }
     }
 
@@ -457,7 +460,6 @@ public class View extends Canvas implements Runnable{
 
     public void setOptions(ArrayList<int[]> options) {
         this.options = options;
-        //System.out.println(this.options.get(0)[0] + " " + this.options.get(0)[1]);
         if(options.size() == 0){
             chosen = new int[]{8, 8};
         }

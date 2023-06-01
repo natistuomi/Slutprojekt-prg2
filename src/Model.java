@@ -277,9 +277,79 @@ public class Model {
     }
 
     public void move(int[] from, int[] to){
+        removeTakenPieceIfNeeded(to);
+        //pawn/knight/.setPosition(x, y);
+        //square occupiedBy white/black/empty
+        //square piece pawn/rook/...
 
-
-
+        //model remove from arrayList "taken" pieces?
         moveDone();
+    }
+
+    public void removeTakenPieceIfNeeded(int[] to){
+        if(currentColour.equals("black")){
+            for(int i = 0; i < whitePawn.size(); i++){
+                if(whitePawn.get(i).getX() == to[0] && whitePawn.get(i).getY() == to[1]){
+                    whitePawn.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteRook.size(); i++){
+                if(whiteRook.get(i).getX() == to[0] && whiteRook.get(i).getY() == to[1]){
+                    whiteRook.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteKnight.size(); i++){
+                if(whiteKnight.get(i).getX() == to[0] && whiteKnight.get(i).getY() == to[1]){
+                    whiteKnight.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteBishop.size(); i++){
+                if(whiteBishop.get(i).getX() == to[0] && whiteBishop.get(i).getY() == to[1]){
+                    whiteBishop.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteQueen.size(); i++){
+                if(whiteQueen.get(i).getX() == to[0] && whiteQueen.get(i).getY() == to[1]){
+                    whiteQueen.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteKing.size(); i++){
+                if(whiteKing.get(i).getX() == to[0] && whiteKing.get(i).getY() == to[1]){
+                    whiteKing.remove(i);
+                }
+            }
+        }
+        else{
+            for(int i = 0; i < blackPawn.size(); i++){
+                if(blackPawn.get(i).getX() == to[0] && blackPawn.get(i).getY() == to[1]){
+                    blackPawn.remove(i);
+                }
+            }
+            for(int i = 0; i < blackRook.size(); i++){
+                if(blackRook.get(i).getX() == to[0] && blackRook.get(i).getY() == to[1]){
+                    blackRook.remove(i);
+                }
+            }
+            for(int i = 0; i < whiteKnight.size(); i++){
+                if(blackKnight.get(i).getX() == to[0] && blackKnight.get(i).getY() == to[1]){
+                    blackKnight.remove(i);
+                }
+            }
+            for(int i = 0; i < blackBishop.size(); i++){
+                if(blackBishop.get(i).getX() == to[0] && blackBishop.get(i).getY() == to[1]){
+                    blackBishop.remove(i);
+                }
+            }
+            for(int i = 0; i < blackQueen.size(); i++){
+                if(blackQueen.get(i).getX() == to[0] && blackQueen.get(i).getY() == to[1]){
+                    blackQueen.remove(i);
+                }
+            }
+            for(int i = 0; i < blackKing.size(); i++){
+                if(blackKing.get(i).getX() == to[0] && blackKing.get(i).getY() == to[1]){
+                    blackKing.remove(i);
+                }
+            }
+        }
     }
 }
