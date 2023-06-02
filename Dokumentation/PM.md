@@ -12,7 +12,7 @@ Sammanfattningsvis ska projektet:
 - [X] Ha ett MVC upplägg.
 - [X] Ha ett pixelbaserat GUI styrt med tangentbordet.
 - [ ] Kunna spelas som ett vanligt schackspel med två spelare med reservation för att spelet inte är över förrän en kung är tagen.
-- [ ]Ska föra in varje omgångs statistik i en databas.
+- [ ] Ska föra in varje omgångs statistik i en databas.
 
 ---
 
