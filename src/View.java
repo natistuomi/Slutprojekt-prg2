@@ -445,7 +445,6 @@ public class View extends Canvas implements Runnable{
                 else{
                     makeSelected();
                     noChange = false;
-                    System.out.println(selected[0] + " & " + selected[1]);
                 }
             }
         }
@@ -465,6 +464,7 @@ public class View extends Canvas implements Runnable{
         }
         else{
             chosen = selected;
+            System.out.println("Chosen: " + chosen[0] + "," + chosen[1]);
         }
     }
 
@@ -490,6 +490,7 @@ public class View extends Canvas implements Runnable{
     }
 
     public int[] getChosen() {
+        System.out.println("Get chosen: " + chosen[0] + "," + chosen[1]);
         return chosen;
     }
 }

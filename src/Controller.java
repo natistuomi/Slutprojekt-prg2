@@ -25,19 +25,23 @@ public class Controller {
                 view.resetNoChange();
                 if (model.checkIfSquareIsViable(view.getSelected())) {
                     view.setOptions(model.getOptions(view.getSelected()));
+                    System.out.println("1");
                 }
                 else if(model.checkIfSquareIsOption(view.getSelected(), view.getOptions())){
-                    model.move(view.getChosen(), view.getSelected());
+                    System.out.println("2");
+                    System.out.println("From: " + view.getChosen()[0] + "," + view.getChosen()[1] + " To: " + view.getSelected()[0] + "," + view.getSelected()[1]);
+                    view.setSquares(model.move(view.getChosen(), view.getSelected()));
                     i = 1;
                     view.setMoves("" + model.getMoves());
                     view.setOptions(model.emptyOptions());
                 }
                 else{
+                    System.out.println("3");
                     view.setOptions(model.emptyOptions());
                 }
             }
         }
-        //model.sendScore(view.get(players), model.getWinner());
+        //model.sendScore(view.get(players));
     }
 
     public static void main(String[] args) {

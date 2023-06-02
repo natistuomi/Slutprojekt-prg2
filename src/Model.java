@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.sql.*;
 
 public class Model {
     private Square[][] square = new Square[8][8];
@@ -276,14 +277,114 @@ public class Model {
         return options;
     }
 
-    public void move(int[] from, int[] to){
+    public Square[][] move(int[] from, int[] to){
+        int oldX = from[0];
+        int oldY = from[1];
+        int newX = to[0];
+        int newY = to[1];
+        System.out.println("From: " + from[0] + "," + from[1] + " To: " + to[0] + "," + to[1]);
+        System.out.println("From: " + oldX + "," + oldY + " To: " +newX + "," + newY);
         removeTakenPieceIfNeeded(to);
-        //pawn/knight/.setPosition(x, y);
-        //square occupiedBy white/black/empty
-        //square piece pawn/rook/...
-
-        //model remove from arrayList "taken" pieces?
+        getPieceInPosition(newX, newY);
+        System.out.println("To square is: " + square[newX][newY].getPiece());
+        square[newX][newY].moveToSquare(square[oldX][oldY].getOccupiedBy(), square[oldX][oldY].getPiece());
+        System.out.println("To square becomes: " + square[newX][newY].getPiece());
+        System.out.println("From square is: " + square[oldX][oldY].getPiece());
+        square[oldX][oldY].leaveSquare();
+        System.out.println("From square becomes: " + square[oldX][oldY].getPiece());
         moveDone();
+        return square;
+    }
+
+    public void getPieceInPosition(int x, int y){
+        if(currentColour.equals("white")){
+            if(square[x][y].getPiece().equals("pawn")){
+                for(int i = 0; i < whitePawn.size(); i++){
+                    if(whitePawn.get(i).getX() == x && whitePawn.get(i).getY() == y){
+                        whitePawn.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("rook")){
+                for(int i = 0; i < whiteRook.size(); i++){
+                    if(whiteRook.get(i).getX() == x && whiteRook.get(i).getY() == y){
+                        whiteRook.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("knight")){
+                for(int i = 0; i < whiteKnight.size(); i++){
+                    if(whiteKnight.get(i).getX() == x && whiteKnight.get(i).getY() == y){
+                        whiteKnight.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("bishop")){
+                for(int i = 0; i < whiteBishop.size(); i++){
+                    if(whiteBishop.get(i).getX() == x && whiteBishop.get(i).getY() == y){
+                        whiteBishop.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("queen")){
+                for(int i = 0; i < whiteQueen.size(); i++){
+                    if(whiteQueen.get(i).getX() == x && whiteQueen.get(i).getY() == y){
+                        whiteQueen.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("king")){
+                for(int i = 0; i < whiteKing.size(); i++){
+                    if(whiteKing.get(i).getX() == x && whiteKing.get(i).getY() == y){
+                        whiteKing.get(i).setPosition(x,y);
+                    }
+                }
+            }
+        }
+        else{
+            if(square[x][y].getPiece().equals("pawn")){
+                for(int i = 0; i < blackPawn.size(); i++){
+                    if(blackPawn.get(i).getX() == x && blackPawn.get(i).getY() == y){
+                        blackPawn.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("rook")){
+                for(int i = 0; i < blackRook.size(); i++){
+                    if(blackRook.get(i).getX() == x && blackRook.get(i).getY() == y){
+                        blackRook.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("knight")){
+                for(int i = 0; i < blackKnight.size(); i++){
+                    if(blackKnight.get(i).getX() == x && blackKnight.get(i).getY() == y){
+                        blackKnight.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("bishop")){
+                for(int i = 0; i < blackBishop.size(); i++){
+                    if(blackBishop.get(i).getX() == x && blackBishop.get(i).getY() == y){
+                        blackBishop.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("queen")){
+                for(int i = 0; i < blackQueen.size(); i++){
+                    if(blackQueen.get(i).getX() == x && blackQueen.get(i).getY() == y){
+                        blackQueen.get(i).setPosition(x,y);
+                    }
+                }
+            }
+            else if(square[x][y].getPiece().equals("king")){
+                for(int i = 0; i < blackKing.size(); i++){
+                    if(blackKing.get(i).getX() == x && blackKing.get(i).getY() == y){
+                        blackKing.get(i).setPosition(x,y);
+                    }
+                }
+            }
+        }
     }
 
     public void removeTakenPieceIfNeeded(int[] to){
@@ -352,4 +453,34 @@ public class Model {
             }
         }
     }
+
+    /*public void sendScore(String[] names){
+        DatabaseLogin a = new DatabaseLogin();
+        Connection conn = null;
+
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://" + a.getHost() + ":" + a.getPort() + "/" + a.getDatabase() + "? "+
+                    "allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", a.getUser(),a.getPassword());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+        //statment needs remaking.
+        Statement stmt = conn.createStatement();
+
+            String won = player[winner];
+            String lost = player[1-winner];
+
+            SQLQuery = "INSERT INTO nt19chess(winner, loser, moves) VALUES(won, lost, moves)";
+            stmt.executeUpdate(SQLQuery);
+
+            stmt.close();
+            conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }*/
 }

@@ -1,7 +1,7 @@
 public class Square {
     private String colour;
     private String occupiedBy = "empty";
-    private String piece = "";
+    private String piece = "empty";
 
     public Square(String colour) {
         this.colour = colour;
@@ -14,18 +14,6 @@ public class Square {
 
     public String getPiece() {
         return piece;
-    }
-
-    public void setPiece(String piece) {
-        this.piece = piece;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public String getColour() {
-        return colour;
     }
 
     public String getOccupiedBy() {
@@ -45,7 +33,13 @@ public class Square {
                 '}';
     }
 
+    public void moveToSquare(String colour, String pc){
+        occupiedBy = colour;
+        piece = pc;
+    }
+
     public void leaveSquare(){
         occupiedBy = "empty";
+        piece = "empty";
     }
 }
