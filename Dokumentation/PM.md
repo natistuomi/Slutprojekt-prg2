@@ -18,14 +18,23 @@ Sammanfattningsvis ska projektet:
 
 ## Bakgrund
 
+Arbetet började med [planering.](/Dokumentation/planering.md) Provisoriska klassdiagram, skisser och databasritning skapades för att få en så bra överblick som möjligt. 
+
+Själva programmeringen började med den objektorienterade biten. Klasserna som skulle användas för schackbrädet och pjäserna skapades först. Sedan när det fanns en grund för dem så gick jag över till MVC upplägget och själva spelet. Det inkluderade att metoden kan kolla om spelet är över, ge möjliga drag och liknande samtidigt som view behövde kunna rita upp spelplanen och alla pjäser samt reagera på tangenttryck.
+
 ---
 
 ## Bra
+Det ser ut som ett schack. Du kan inte sätta igång programmet och missa vad poängen är. Dessutom har det gått förvånande bra med det interaktiva. Färgade symboler visar var spelaren är, pjäsen som redan tryckts och även möjliga drag. 
+Även klasserna har blivit uppbyggda på ett sätt som jag är nöjd med. De här sakerna kunde jag lägga mer tid på eftersom det var där jag började och en genomtänkt planering var givetvis en stor hjälp. Jag har fått bli bättre på att felsöka eftersom när jag har fått fel så har jag ungefär 10 filer och en hel massa kod att genomsöka.
 
 ---
 
 ## Mindre bra
+Tid- och energibrist får konsekvenser. Jag glömde bort databasinslaget framtills det var för sent för att hinna få till det. Jag har delar av dess uppbyggnad i koden, men den blir inte en del av programmet eftersom den inte är fullständig eller slutförd. 
+
 
 ---
 
 ## Sammanfattning
+De delarna jag hann med är jag väldigt nöjd med. Det är surt att inte kunnat fullfölja planen, men man lever och man lär. Det går alltid att fortsätta på det som hobbyprojekt om man får tid över i sommar.

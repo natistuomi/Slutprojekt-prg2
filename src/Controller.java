@@ -41,6 +41,7 @@ public class Controller {
                 }
             }
         }
+        view.setStage(3);
         //model.sendScore(view.get(players));
     }
 

@@ -244,6 +244,12 @@ public class Model {
     }
 
     public boolean bothKingsAlive(){
+        if(whiteKing.size() == 0){
+            winner = 1;
+        }
+        else if(blackKing.size() == 0){
+            winner = 0;
+        }
         return whiteKing.size()!=0 && blackKing.size()!=0;
     }
 

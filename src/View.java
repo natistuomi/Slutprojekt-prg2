@@ -453,6 +453,10 @@ public class View extends Canvas implements Runnable{
         }
     }
 
+    public void setStage(int a){
+        stage = a;
+    }
+
     public String[] getPlayer() {
         return player;
     }
