@@ -112,17 +112,27 @@ public class Model {
             s[1] = options.get(i)[1];
             if(s[0] == 321){q = 0;}
             else if(s[0] == 123){q = 1;}
+            else if(s[0] == -1){q = -2;}
             else if(q == 0){
+                if(square[s[0]][s[1]].getOccupiedBy().equals("empty")){
+                    clean.add(s);
+                    s = new int[2];
+                }
+            }
+            else if(q == 1 && square[s[0]][s[1]].getOccupiedBy().equals("empty")){
+                if(square[s[0]][s[1]].getOccupiedBy().equals(currentColour)){}
+                else{
+                    clean.add(s);
+                    s = new int[2];
+                }
+            }
+            else if(q == -2){
                 if(square[s[0]][s[1]].getOccupiedBy().equals("empty")){}
                 else if(square[s[0]][s[1]].getOccupiedBy().equals(currentColour)){}
                 else{
                     clean.add(s);
                     s = new int[2];
                 }
-            }
-            else if(q == 1 && square[s[0]][s[1]].getOccupiedBy().equals("empty")){
-                clean.add(s);
-                s = new int[2];
             }
             else{
                 q = -1;
