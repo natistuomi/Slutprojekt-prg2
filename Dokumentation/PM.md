@@ -32,8 +32,8 @@ Det ser ut som ett schack. Du kan inte sätta igång programmet och missa vad po
 
 ## Mindre bra
 Tid- och energibrist får konsekvenser. Jag glömde bort databasinslaget framtills det var för sent för att hinna få till det. Jag har delar av dess uppbyggnad i koden, men den blir inte en del av programmet eftersom den inte är fullständig eller slutförd. 
-Jag har dessutom fått ett problem som gör det omöjligt att göra ett drag. I viewn finns det en variabel (chosen) som ska vara koordinaterna för pjäsen du vill fytta. Problemet är att någonstans mellan view.setOptions() och view.getChosen() ändras koordinaterna till dem pjäsen ska flytta till istället för ifrån. Det gör det omöjligt att fullfölja ett drag. 
-Om det problemet löstes borde spelet vara fullt spelbart, men jag kan för allt i världen inte hitta vad som har blivit fel. Jag har stirrat mig blind på koden i ungefär 8 h under loppet av 2 dagar.
+Jag har dessutom fått ett problem som gör det omöjligt att göra ett drag. I viewn finns det en variabel (chosen) som ska vara koordinaterna för pjäsen du vill flytta. Problemet är att någonstans mellan view.setOptions() och view.getChosen() ändras koordinaterna till dem pjäsen ska flytta till istället för ifrån. Det gör det omöjligt att fullfölja ett drag. 
+Om det problemet löstes borde spelet vara fullt spelbart, men jag kan för allt i världen inte hitta vad som har blivit fel. Jag har tittat på varenda ställe i viewn där chosen nämns, men inget av det borde förändra variabeln. Jag har stirrat mig blind på koden i ungefär 8 h under loppet av 2 dagar.
 
 
 ---
